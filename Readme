@@ -1,14 +1,14 @@
 Project titled 'Search API's - UK Bank Holidays
 Dates: May 2023
 
-Topics Covered
-Library imported  (requests)
-Use of public API
-Variables
-Function Definition
-While Loop to allow continuation of user inputs
-If Else conditions
-String formatting in print function e.g. lower case, curly braces
+** Topics Covered **
+- Library imported  (requests)
+-  Use of public API
+- Variables
+- Create a Function
+- While Loop to allow continuation of user inputs
+- If Else conditions applied
+- String formatting in print function used. For example, lower case, curly braces
 
-Topic not covered but considering for future use
-* Library easygui (creation of form to display information)
+** Topic not covered but considering for future use **
+- Library 'easygui' (to allow creation of form to display the search information)
