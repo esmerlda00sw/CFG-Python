@@ -1,14 +1,22 @@
 Project titled 'Search API's - UK Bank Holidays
 Dates: May 2023
 
+What does the code do?:   The programme allows the user to input a country in the UK and enter a given year. 
+
+What is the output?: The output is a list of UK named Bank Holidays and its dates for the given country and year.
+
+Other features:  
+(1) Inform the user if a country or a year has been entered incorrectly.
+(2) Gives the user an option to carry out another search or quit.
+
 ** Topics Covered **
-- Library imported  (requests)
--  Use of public API
-- Variables
-- Create a Function
-- While Loop to allow continuation of user inputs
-- If Else conditions applied
-- String formatting in print function used. For example, lower case, curly braces
+(1) Library imported  (requests)
+(2) Use of public API
+(3) Variables
+(4) Create a Function
+(5) While Loop to allow continuation of user inputs
+(6) If Else conditions applied
+(7) String formatting in print function used. For example, lower case, curly braces
 
 ** Topic not covered but considering for future use **
-- Library 'easygui' (to allow creation of form to display the search information)
+(1) Library 'easygui' (to allow creation of form to display the search information)
