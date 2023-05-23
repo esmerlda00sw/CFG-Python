@@ -1,8 +1,9 @@
 Main Project titled 'Search API's - UK Bank Holidays
 Submission to CFG - Code For Girls UK: May 2023
 Course: Introduction to Python
+IDE Used: Pycharm 3.10
 
-What does the code do?:   The programme allows the user to input a given country in the UK and year. 
+What does the code do?:   The program code allows the user to input a given country in the UK and year. 
 
 What is the output?: The output is a list of UK named Bank Holidays and its dates for the given country and year.
 
