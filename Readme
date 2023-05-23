@@ -8,8 +8,8 @@ What does the code do?:   The program code allows the user to input a given coun
 What is the output?: The output is a list of UK named Bank Holidays and its dates for the given country and year.
 
 Other features:  
-(1) Inform the user if a country or a year has been entered incorrectly.
-(2) Gives the user an option to carry out another search or quit.
+(1) Informs the user if a country or a year has been entered incorrectly.
+(2) Gives the user an option to carry out another search or quit :)
 
 ** Topics Covered in my Code **
 (1) Library imported  (requests)
