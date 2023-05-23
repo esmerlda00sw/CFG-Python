@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>search_API's_Weather_CFG-May23.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #808080;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #cc7832;}
+.s3 { color: #6a8759;}
+.s4 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+search_API's_Weather_CFG-May23.py</font>
+</center></td></tr></table>
+<pre><span class="s0"># This code allows the user to find out what the current weather is for a location</span>
+<span class="s0"># Created &amp; presented by Sultana on 23rd May 2023</span>
+<span class="s0"># API key is from OpenWeatherMap.org</span>
+<span class="s0"># You need to sign up to obtain an API Key. It's located under your profile as 'My API Keys'</span>
+<span class="s2">import </span><span class="s1">requests</span>
+
+<span class="s1">my_api_key = </span><span class="s3">&quot;fb98c5b757430da8f2c7234e775928cf&quot;</span>
+
+<span class="s0"># we need to get a location from the user by user input</span>
+<span class="s1">location = input(</span><span class="s3">&quot;Please enter a location name (e.g. London): &quot;</span><span class="s1">)</span>
+
+<span class="s0"># URL using my api key from Openweather.org</span>
+<span class="s1">url = </span><span class="s3">&quot;http://api.openweathermap.org/data/2.5/weather?q={}&amp;appid={}&quot;</span><span class="s1">.format(location</span><span class="s2">, </span><span class="s1">my_api_key)</span>
+
+<span class="s0"># Sending the request to get the weather information or it wont work.</span>
+<span class="s1">response = requests.get(url)</span>
+<span class="s1">data = response.json()</span>
+
+<span class="s0"># we need to get the weather information from the URL which is known as variable data.</span>
+<span class="s2">if </span><span class="s3">&quot;weather&quot; </span><span class="s2">in </span><span class="s1">data </span><span class="s2">and </span><span class="s3">&quot;main&quot; </span><span class="s2">in </span><span class="s1">data:</span>
+    <span class="s1">weather = data[</span><span class="s3">&quot;weather&quot;</span><span class="s1">][</span><span class="s4">0</span><span class="s1">][</span><span class="s3">&quot;description&quot;</span><span class="s1">]</span>
+    <span class="s1">temp_kelvin = data[</span><span class="s3">&quot;main&quot;</span><span class="s1">][</span><span class="s3">&quot;temp&quot;</span><span class="s1">]  </span><span class="s0"># the temperature is in kelvin not celsisus</span>
+
+    <span class="s0"># Convert temperature to Celsius and round up</span>
+    <span class="s1">temp_celsius = round(temp_kelvin - </span><span class="s4">273.15</span><span class="s1">)</span>
+
+    <span class="s0"># Show the weather information</span>
+    <span class="s1">print(</span><span class="s3">&quot;The weather summary in {}: {}&quot;</span><span class="s1">.format(location</span><span class="s2">, </span><span class="s1">weather))</span>
+    <span class="s1">print(</span><span class="s3">&quot;The current temperature is: {} celsius&quot;</span><span class="s1">.format(temp_celsius))</span>
+<span class="s2">else</span><span class="s1">:</span>
+    <span class="s1">print(</span><span class="s3">&quot;Sorry, there is an issue getting your weather data.&quot;</span><span class="s1">)</span>
+
+<span class="s0"># Ask the user if they want to do another search or quit by entering a N. We've added lower case</span>
+<span class="s2">while True</span><span class="s1">:</span>
+    <span class="s1">choice = input(</span><span class="s3">&quot;Do you want to search again? (Y/N): &quot;</span><span class="s1">)</span>
+    <span class="s2">if </span><span class="s1">choice.lower() == </span><span class="s3">&quot;y&quot;</span><span class="s1">:</span>
+        <span class="s0"># Get the city from the user</span>
+        <span class="s1">city = input(</span><span class="s3">&quot;Please enter a location/city name (e.g. London): &quot;</span><span class="s1">)</span>
+
+        <span class="s0"># getting the weather information</span>
+        <span class="s2">if </span><span class="s3">&quot;weather&quot; </span><span class="s2">in </span><span class="s1">data </span><span class="s2">and </span><span class="s3">&quot;main&quot; </span><span class="s2">in </span><span class="s1">data:</span>
+            <span class="s1">weather = data[</span><span class="s3">&quot;weather&quot;</span><span class="s1">][</span><span class="s4">0</span><span class="s1">][</span><span class="s3">&quot;description&quot;</span><span class="s1">]</span>
+            <span class="s1">temp_kelvin = data[</span><span class="s3">&quot;main&quot;</span><span class="s1">][</span><span class="s3">&quot;temp&quot;</span><span class="s1">]  </span><span class="s0"># Temperature is in kelvin not celsisus in OpenWeather</span>
+
+            <span class="s0"># Change temperature from Kelvin to Celsius and round up</span>
+            <span class="s1">temp_celsius = round(temp_kelvin - </span><span class="s4">273.15</span><span class="s1">)</span>
+
+            <span class="s0"># we need to show the weather information to the user using print</span>
+            <span class="s1">print(</span><span class="s3">&quot;Weather in {}: {}&quot;</span><span class="s1">.format(location</span><span class="s2">, </span><span class="s1">weather))</span>
+            <span class="s1">print(</span><span class="s3">&quot;Current temperature is: {} degrees Celsius&quot;</span><span class="s1">.format(temp_celsius))</span>
+        <span class="s2">else</span><span class="s1">:</span>
+            <span class="s1">print(</span><span class="s3">&quot;Sorry, there was a problem fetching weather data.&quot;</span><span class="s1">)</span>
+    <span class="s2">elif </span><span class="s1">choice.lower() == </span><span class="s3">&quot;n&quot;</span><span class="s1">:</span>
+        <span class="s1">print(</span><span class="s3">&quot;</span><span class="s2">\n</span><span class="s3">Thank you for using our weather search! from Esmerlda00SW&quot;</span><span class="s1">)</span>
+        <span class="s2">break</span>
+    <span class="s2">else</span><span class="s1">:</span>
+        <span class="s1">print(</span><span class="s3">&quot;Incorrect entry. Please re-enter with a Y or N.&quot;</span><span class="s1">)</span></pre>
+</body>
+</html>
